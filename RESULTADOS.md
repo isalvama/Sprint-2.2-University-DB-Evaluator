@@ -2,70 +2,39 @@
 
 
 ## 📈 Resumen
-✅ 14 correctas de 24 queries
+✅ 18 correctas de 24 queries
 
-## ❌ Query 1: Incorrecto
-```diff
---- 
-+++ 
-@@ -1,13 +1,13 @@
--apellido1 | apellido2 | nombre
--Domínguez | Guerrero | Antonio
--Gea | Ruiz | Sonia
--Gutiérrez | López | Juan
--Heller | Pagac | Pedro
--Herman | Pacocha | Daniel
--Hernández | Martínez | Irene
--Herzog | Tremblay | Ramón
--Koss | Bayer | José
--Lakin | Yundt | Inma
--Saez | Vega | Juan
--Sánchez | Pérez | Salvador
--Strosin | Turcotte | Ismael
-+nombre | apellido1 | apellido2
-+Antonio | Domínguez | Guerrero
-+Sonia | Gea | Ruiz
-+Juan | Gutiérrez | López
-+Pedro | Heller | Pagac
-+Daniel | Herman | Pacocha
-+Irene | Hernández | Martínez
-+Ramón | Herzog | Tremblay
-+José | Koss | Bayer
-+Inma | Lakin | Yundt
-+Juan | Saez | Vega
-+Salvador | Sánchez | Pérez
-+Ismael | Strosin | Turcotte
-```
+## ✅ Query 1: Correcto
 
-⏱ Tiempo: 0.41 ms
+⏱ Tiempo: 0.38 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 2: Correcto
 
-⏱ Tiempo: 0.31 ms
+⏱ Tiempo: 0.33 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 3: Correcto
 
-⏱ Tiempo: 0.31 ms
+⏱ Tiempo: 0.35 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 4: Correcto
 
-⏱ Tiempo: 0.31 ms
+⏱ Tiempo: 0.33 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 5: Correcto
 
-⏱ Tiempo: 0.33 ms
+⏱ Tiempo: 0.34 ms
 ✅ Se usó índice(s) en la consulta: id_grado
 
 ---
@@ -74,33 +43,12 @@
 ```diff
 --- 
 +++ 
-@@ -1,13 +1,13 @@
+@@ -1,4 +1,4 @@
 -apellido1 | apellido2 | nombre | departamento
--Fahey | Considine | Antonio | Economía y Empresa
--Hamill | Kozey | Manolo | Informática
--Kohler | Schoen | Alejandro | Matemáticas
--Lemke | Rutherford | Cristina | Economía y Empresa
--Monahan | Murray | Micaela | Agronomía
--Ramirez | Gea | Zoe | Informática
--Ruecker | Upton | Guillermo | Educación
--Schmidt | Fisher | David | Matemáticas
--Schowalter | Muller | Francesca | Química y Física
--Spencer | Lakin | Esther | Educación
--Stiedemann | Morissette | Alfredo | Química y Física
--Streich | Hirthe | Carmen | Educación
-+apellido1 | apellido1 | nombre
-+Fahey | Fahey | Economía y Empresa
-+Hamill | Hamill | Informática
-+Kohler | Kohler | Matemáticas
-+Lemke | Lemke | Economía y Empresa
-+Monahan | Monahan | Agronomía
-+Ramirez | Ramirez | Informática
-+Ruecker | Ruecker | Educación
-+Schmidt | Schmidt | Matemáticas
-+Schowalter | Schowalter | Química y Física
-+Spencer | Spencer | Educación
-+Stiedemann | Stiedemann | Química y Física
-+Streich | Streich | Educación
++apellido1 | apellido2 | nombre | nombre
+ Fahey | Considine | Antonio | Economía y Empresa
+ Hamill | Kozey | Manolo | Informática
+ Kohler | Schoen | Alejandro | Matemáticas
 ```
 
 ⏱ Tiempo: 0.40 ms
@@ -110,48 +58,21 @@
 
 ## ✅ Query 7: Correcto
 
-⏱ Tiempo: 0.56 ms
-✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_asignatura,id_curso_escolar, PRIMARY,nif
+⏱ Tiempo: 0.58 ms
+✅ Se usó índice(s) en la consulta: PRIMARY,id_asignatura,id_curso_escolar, PRIMARY,nif, PRIMARY
 
 ---
 
-## ❌ Query 8: Incorrecto
-```diff
---- 
-+++ 
-@@ -1,2 +1,22 @@
- nombre
- Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-```
+## ✅ Query 8: Correcto
 
-⏱ Tiempo: 0.37 ms
+⏱ Tiempo: 0.40 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY,id_departamento, PRIMARY, id_profesor,id_grado
 
 ---
 
 ## ✅ Query 9: Correcto
 
-⏱ Tiempo: 0.39 ms
+⏱ Tiempo: 0.38 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_curso_escolar
 
 ---
@@ -189,21 +110,21 @@
 +Química y Física | Alfredo | Stiedemann | Morissette
 ```
 
-⏱ Tiempo: 0.43 ms
+⏱ Tiempo: 0.42 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY
 
 ---
 
 ## ✅ Query 11: Correcto
 
-⏱ Tiempo: 0.40 ms
+⏱ Tiempo: 0.38 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY
 
 ---
 
 ## ✅ Query 12: Correcto
 
-⏱ Tiempo: 0.33 ms
+⏱ Tiempo: 0.35 ms
 ✅ Se usó índice(s) en la consulta: id_departamento
 
 ---
@@ -229,145 +150,63 @@
  Schowalter | Muller | Francesca
 ```
 
-⏱ Tiempo: 0.38 ms
-✅ Se usó índice(s) en la consulta: id_profesor, PRIMARY
+⏱ Tiempo: 0.37 ms
+✅ Se usó índice(s) en la consulta: PRIMARY, id_profesor
 
 ---
 
 ## ✅ Query 14: Correcto
 
-⏱ Tiempo: 0.31 ms
+⏱ Tiempo: 0.32 ms
 ✅ Se usó índice(s) en la consulta: id_profesor
 
 ---
 
-## ❌ Query 15: Incorrecto
-```diff
---- 
-+++ 
-@@ -1,9 +1,63 @@
- nombre
- Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Matemáticas
- Matemáticas
- Economía y Empresa
-+Economía y Empresa
-+Educación
-+Educación
- Educación
- Agronomía
-+Química y Física
- Química y Física
- Filología
- Derecho
-```
+## ✅ Query 15: Correcto
 
-⏱ Tiempo: 0.36 ms
-✅ Se usó índice(s) en la consulta: id_profesor, PRIMARY, id_asignatura, id_departamento
+⏱ Tiempo: 0.42 ms
+✅ Se usó índice(s) en la consulta: PRIMARY, id_asignatura, id_departamento, id_profesor
 
 ---
 
 ## ✅ Query 16: Correcto
 
-⏱ Tiempo: 0.30 ms
+⏱ Tiempo: 0.34 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 17: Correcto
 
-⏱ Tiempo: 0.31 ms
+⏱ Tiempo: 0.32 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
-## ❌ Query 18: Incorrecto
-```diff
---- 
-+++ 
-@@ -1,7 +1,7 @@
- departamento | total
--Educación | 3.00
- Informática | 2.00
- Matemáticas | 2.00
- Economía y Empresa | 2.00
-+Educación | 3.00
-+Agronomía | 1.00
- Química y Física | 2.00
--Agronomía | 1.00
-```
+## ✅ Query 18: Correcto
 
-⏱ Tiempo: 0.36 ms
+⏱ Tiempo: 0.34 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY, id_departamento
 
 ---
 
 ## ✅ Query 19: Correcto
 
-⏱ Tiempo: 0.33 ms
+⏱ Tiempo: 0.40 ms
 ✅ Se usó índice(s) en la consulta: id_departamento
 
 ---
 
 ## ✅ Query 20: Correcto
 
-⏱ Tiempo: 0.34 ms
+⏱ Tiempo: 0.36 ms
 ✅ Se usó índice(s) en la consulta: id_grado
 
 ---
 
 ## ✅ Query 21: Correcto
 
-⏱ Tiempo: 0.34 ms
+⏱ Tiempo: 0.37 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY
 
 ---
@@ -412,7 +251,7 @@
 +Grado en Biotecnología (Plan 2015) | obligatoria | 22.00
 ```
 
-⏱ Tiempo: 0.34 ms
+⏱ Tiempo: 0.41 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY, id_grado
 
 ---
