@@ -1,5 +1,5 @@
 -- 1. Retorna un llistat amb el primer cognom, segon cognom i el nom de tots els/les alumnes. El llistat haurà d'estar ordenat alfabèticament de menor a major pel primer cognom, segon cognom i nom.
-SELECT nombre, apellido1, apellido2 FROM universidad.persona WHERE tipo = 'alumno' ORDER BY apellido1, nombre, apellido2;
+SELECT apellido1, apellido2, nombre  FROM universidad.persona WHERE tipo = 'alumno' ORDER BY apellido1, nombre, apellido2;
 
 -- 2. Esbrina el nom i els dos cognoms dels alumnes que no han donat d'alta el seu número de telèfon en la base de dades. (nombre, apellido1, apellido2)
 SELECT nombre, apellido1, apellido2 FROM universidad.persona WHERE tipo = 'alumno' AND telefono IS NULL;
@@ -15,7 +15,7 @@ SELECT id, nombre, cuatrimestre, curso, id_grado FROM universidad.asignatura WHE
 
 -- 6. Retorna un llistat dels professors/es juntament amb el nom del departament al qual estan vinculats. El llistat ha de retornar quatre columnes, primer cognom, segon cognom, nom i nom del departament.
 -- El resultat estarà ordenat alfabèticament de menor a major pels cognoms i el nom. (apellido1, apellido2, nombre, departamento)
-    SELECT p.apellido1, p.apellido1, d.nombre
+   SELECT p.apellido1, p.apellido2, p.nombre, d.nombre
     FROM universidad.persona p
         JOIN universidad.profesor p2
             ON p.id = p2.id_profesor
@@ -35,7 +35,7 @@ SELECT id, nombre, cuatrimestre, curso, id_grado FROM universidad.asignatura WHE
     WHERE p.nif = '26902806M';
 
 -- 8. Retorna un llistat amb el nom de tots els departaments que tenen professors/es que imparteixen alguna assignatura en el Grau en Enginyeria Informàtica (Pla 2015). (nombre)
-SELECT d.nombre
+SELECT DISTINCT d.nombre
     FROM universidad.departamento d
         JOIN universidad.profesor prof
             ON prof.id_departamento = d.id
@@ -100,12 +100,13 @@ SELECT d.nombre
     WHERE a.id_profesor IS NULL;
 
 -- 15. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar. (nombre)
-    SELECT d.nombre
+    SELECT DISTINCT d.nombre
     FROM universidad.departamento d
     LEFT JOIN universidad.profesor p ON d.id = p.id_departamento
     LEFT JOIN universidad.asignatura a ON p.id_profesor = a.id_profesor
     LEFT JOIN universidad.alumno_se_matricula_asignatura asma on a.id = asma.id_asignatura
     LEFT JOIN universidad.curso_escolar ON asma.id_curso_escolar = curso_escolar.id;
+
 -- Consultes resum:
 -- 16. Retorna el nombre total d'alumnes que hi ha. (total)
     SELECT COUNT(id) AS total
@@ -120,7 +121,7 @@ SELECT d.nombre
     SELECT d.nombre AS departamento, COUNT(id_profesor) AS total
     FROM universidad.profesor
     JOIN universidad.departamento d on d.id = profesor.id_departamento
-    GROUP BY d.nombre;
+    GROUP BY d.nombre ORDER BY total DESC;
 
 -- 19. Retorna un llistat amb tots els departaments i el nombre de professors/es que hi ha en cadascun d'ells. Tingui en compte que poden existir departaments que no tenen professors/es associats. Aquests departaments també han d'aparèixer en el llistat. (departamento, total)
     SELECT d.nombre AS departamento, COUNT(id_profesor) AS total
