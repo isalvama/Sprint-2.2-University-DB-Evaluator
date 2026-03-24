@@ -88,7 +88,7 @@ SELECT DISTINCT d.nombre
 -- 13. Retorna un llistat amb els professors/es que no imparteixen cap assignatura. (apellido1, apellido2, nombre)
     SELECT DISTINCT pers.apellido1, pers.apellido2, pers.nombre
     FROM universidad.persona pers
-    LEFT JOIN universidad.profesor prof
+    JOIN universidad.profesor prof
     ON pers.id = prof.id_profesor
     LEFT JOIN universidad.asignatura a
     ON prof.id_profesor = a.id_profesor
@@ -145,7 +145,7 @@ SELECT DISTINCT d.nombre
     HAVING total >= 50;
 
 -- 22. Retorna un llistat que mostri el nom dels graus i la suma del nombre total de crèdits que hi ha per a cada tipus d'assignatura. El resultat ha de tenir tres columnes: nom del grau, tipus d'assignatura i la suma dels crèdits de totes les assignatures que hi ha d'aquest tipus. (grau, tipus, total_creditos)
-    SELECT g.nombre AS grau, a.tipo AS tipo, (COUNT(a.creditos) WHERE a.id_grado = g.id) AS total_creditos
+    SELECT g.nombre AS grau, a.tipo AS tipo, SUM(a.creditos) AS total_creditos
     FROM universidad.asignatura a
     JOIN universidad.grado g ON g.id = a.id_grado
     GROUP BY g.nombre, a.tipo;
@@ -164,8 +164,8 @@ SELECT DISTINCT d.nombre
 
 -- 25. Retorna totes les dades de l'alumne/a més jove.
     SELECT * FROM universidad.persona p
-    WHERE tipo = 'alumno'
-    ORDER BY p.fecha_nacimiento DESC LIMIT 1, 1;
+    WHERE tipo = 'alumno' 
+        ORDER BY fecha_nacimiento DESC LIMIT 1;
 
 
 -- 26. Retorna un llistat amb els professors/es que tenen un departament associat i que no imparteixen cap assignatura. (apellido1, apellido2, nombre)
